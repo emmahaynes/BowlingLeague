@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+//Emma Haynes 4-1-21
+
 namespace BowlingLeague.Components
 {
     public class TeamViewComponent : ViewComponent
@@ -18,8 +20,11 @@ namespace BowlingLeague.Components
 
         public IViewComponentResult Invoke()
         {
-            ViewBag.SelectedType = RouteData?.Values["teamname"]; //take each category and filter by it
+            //Saves the teamname as the selected type to compare in the default.cshtml to highlight 
+            //selected team in navigation
+            ViewBag.SelectedType = RouteData?.Values["teamname"];
 
+            //get list of teams and order them to be used in navigation
             return View(context.Teams
                 .Distinct()
                 .OrderBy(x => x));

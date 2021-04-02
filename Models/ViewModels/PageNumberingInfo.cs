@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+//Emma Haynes 4-1-21
+//Model for pagination in the view
+
 namespace BowlingLeague.Models.ViewModels
 {
     public class PageNumberingInfo

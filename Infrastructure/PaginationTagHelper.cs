@@ -9,10 +9,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+//Emma Haynes 4-1-21
+//Tag helpers for pagination being set up here
+
 namespace BowlingLeague.Infrastructure
 {
     [HtmlTargetElement("div", Attributes = "page-info")]
-    public class PaginationTagHelper : TagHelper
+    public class PaginationTagHelper : TagHelper //inherit from the taghelper class
     {
         private IUrlHelperFactory urlInfo;
         public PaginationTagHelper(IUrlHelperFactory uhf)
@@ -40,6 +43,7 @@ namespace BowlingLeague.Infrastructure
             {
                 TagBuilder individualTag = new TagBuilder("a");
 
+                //dynamically build page number links
                 KeyValuePairs["pageNum"] = i;
                 individualTag.Attributes["href"] = urlHelp.Action("Index", KeyValuePairs);
                 individualTag.InnerHtml.Append(i.ToString());

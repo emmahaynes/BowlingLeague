@@ -11,6 +11,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+//Emma Haynes 4-1-21
+
 namespace BowlingLeague
 {
     public class Startup
@@ -27,6 +29,7 @@ namespace BowlingLeague
         {
             services.AddControllersWithViews();
 
+            //adds the databasse into the program
             services.AddDbContext<BowlingLeagueContext>(options =>
                options.UseSqlite(Configuration["ConnectionStrings:BowlingLeagueDbConnection"]));
         }
@@ -51,6 +54,7 @@ namespace BowlingLeague
 
             app.UseAuthorization();
 
+            //controls urls in the program
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute("teamnamepagenum",

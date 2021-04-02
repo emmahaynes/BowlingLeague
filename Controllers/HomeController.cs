@@ -8,6 +8,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
+//Emma Haynes 4-1-21
+
 namespace BowlingLeague.Controllers
 {
     public class HomeController : Controller
@@ -28,6 +30,7 @@ namespace BowlingLeague.Controllers
             return View(new IndexViewModel
 
             {
+                //get bowlers for each category and only show 5 results on each page
                 Bowlers = (context.Bowlers
                 .Where(m => m.TeamId == teamid || teamid == null)
                 .OrderBy(m => m.BowlerFirstName)
@@ -40,8 +43,8 @@ namespace BowlingLeague.Controllers
                     NumItemsPerPage = pageSize,
                     CurrentPage = pageNum,
 
-                    //If no meal has been selected then get the full count, otherwise only count number
-                    //from meal type that has been selected
+                    //If no team name has been selected then get the full count, otherwise only count number
+                    //from specific team name that has been selected
                     TotalNumItems = (teamid == null ? context.Bowlers.Count() :
                         context.Bowlers.Where(x => x.TeamId == teamid).Count())
                 },

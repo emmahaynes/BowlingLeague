@@ -1,4 +1,6 @@
 ﻿@model IEnumerable<Teams>
+<!--Emma Haynes 4-1-21
+    Navigation menu-->
 
 
 <a class="btn btn-block btn-outline-dark" asp-action="Index" asp-controller="Home" asp-route-teamid="">Home</a>
@@ -7,6 +9,7 @@
 
 @foreach (var x in Model)
 {
+    <!--the above code checks the name with that which is selected to highlight button when selected-->
     <a class="btn btn-block @(x.TeamName == ViewBag.SelectedType ? "btn-primary" : "btn-outline-dark")"
        asp-action="Index" asp-controller="Home"
        asp-route-teamid="@x.TeamId"
