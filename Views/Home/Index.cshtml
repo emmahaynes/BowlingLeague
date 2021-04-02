@@ -4,6 +4,8 @@
 
 @model IndexViewModel
 
+<h1>@Model.TeamName</h1>
+
 @foreach (var x in Model.Bowlers)
 {
     <p>@x.BowlerFirstName @x.BowlerMiddleInit @x.BowlerLastName: @x.BowlerAddress @x.BowlerCity, @x.BowlerState @x.BowlerZip @x.BowlerPhoneNumber</p>

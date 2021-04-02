@@ -18,6 +18,8 @@ namespace BowlingLeague.Components
 
         public IViewComponentResult Invoke()
         {
+            ViewBag.SelectedType = RouteData?.Values["teamname"]; //take each category and filter by it
+
             return View(context.Teams
                 .Distinct()
                 .OrderBy(x => x));
